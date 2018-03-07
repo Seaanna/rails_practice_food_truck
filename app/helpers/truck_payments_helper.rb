@@ -1,0 +1,2 @@
+module TruckPaymentsHelper
+end

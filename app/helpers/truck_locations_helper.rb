@@ -1,0 +1,2 @@
+module TruckLocationsHelper
+end

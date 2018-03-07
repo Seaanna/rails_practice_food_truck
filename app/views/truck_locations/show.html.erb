@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @truck_location.truck %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @truck_location.location %>
+</p>
+
+<%= link_to 'Edit', edit_truck_location_path(@truck_location) %> |
+<%= link_to 'Back', truck_locations_path %>

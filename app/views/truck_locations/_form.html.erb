@@ -1,0 +1,27 @@
+<%= form_with(model: truck_location, local: true) do |form| %>
+  <% if truck_location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(truck_location.errors.count, "error") %> prohibited this truck_location from being saved:</h2>
+
+      <ul>
+      <% truck_location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :truck_id %>
+    <%= form.text_field :truck_id, id: :truck_location_truck_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location_id %>
+    <%= form.text_field :location_id, id: :truck_location_location_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

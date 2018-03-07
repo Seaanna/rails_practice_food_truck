@@ -1,0 +1,2 @@
+module TruckCategoriesHelper
+end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Truck Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Truck</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @truck_categories.each do |truck_category| %>
+      <tr>
+        <td><%= truck_category.truck %></td>
+        <td><%= truck_category.category %></td>
+        <td><%= link_to 'Show', truck_category %></td>
+        <td><%= link_to 'Edit', edit_truck_category_path(truck_category) %></td>
+        <td><%= link_to 'Destroy', truck_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Truck Category', new_truck_category_path %>

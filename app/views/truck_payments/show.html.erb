@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Truck:</strong>
+  <%= @truck_payment.truck %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @truck_payment.payment %>
+</p>
+
+<%= link_to 'Edit', edit_truck_payment_path(@truck_payment) %> |
+<%= link_to 'Back', truck_payments_path %>

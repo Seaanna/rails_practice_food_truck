@@ -1,0 +1,27 @@
+<%= form_with(model: truck_payment, local: true) do |form| %>
+  <% if truck_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(truck_payment.errors.count, "error") %> prohibited this truck_payment from being saved:</h2>
+
+      <ul>
+      <% truck_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :truck_id %>
+    <%= form.text_field :truck_id, id: :truck_payment_truck_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_id %>
+    <%= form.text_field :payment_id, id: :truck_payment_payment_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
