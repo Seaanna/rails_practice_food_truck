@@ -5,6 +5,11 @@ class TrucksController < ApplicationController
   # GET /trucks.json
   def index
     @trucks = Truck.all
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @trucks.as_json({})  }
+    end
   end
 
   # GET /trucks/1
