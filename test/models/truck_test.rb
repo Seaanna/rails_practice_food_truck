@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class TruckTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @truck = trucks(:one)
+  end
+
+  test "a truck has_many payments" do
+    assert @truck.payments
+  end
 end

@@ -12,7 +12,8 @@ class Truck < ApplicationRecord
       id: self.id,
       name: self.name,
       payments: self.payments,
-      items: self.items
+      items: self.items,
+      # quantity: 2
     }
   end
 end
