@@ -10,6 +10,7 @@ class TrucksControllerTest < ActionDispatch::IntegrationTest
     json_response = JSON.parse(response.body)
     assert_equal 2, json_response.length
     assert_equal "Bob's Burgers", json_response[1]['name']
+    assert json_response[1]['locations'][0]['phone_number']
     # assert json_response[0]['quantity']
     assert json_response[0]['items'][0]['price']
     assert_response :success

@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Kensington Library
   long: 1
   lat: 1
+  phone_number: 1234567890
 
 two:
   name: MyString

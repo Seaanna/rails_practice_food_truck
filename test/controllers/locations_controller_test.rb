@@ -6,7 +6,10 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get locations_url
+    get locations_url, as: :json
+    json_response = JSON.parse(response.body)
+    assert_equal 2, json_response.length
+    assert_equal "Kensington Library", json_response[1]['name']
     assert_response :success
   end
 

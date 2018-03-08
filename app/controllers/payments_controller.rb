@@ -5,6 +5,11 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     @payments = Payment.all
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @payments.as_json({})  }
+    end
   end
 
   # GET /payments/1
