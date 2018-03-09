@@ -14,7 +14,6 @@ class Truck < ApplicationRecord
       payments: self.payments,
       items: self.items,
       locations: self.locations
-      # quantity: 2
     }
   end
 end

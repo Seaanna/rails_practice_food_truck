@@ -9,10 +9,30 @@ class TrucksControllerTest < ActionDispatch::IntegrationTest
     get trucks_url, as: :json
     json_response = JSON.parse(response.body)
     assert_equal 2, json_response.length
-    assert_equal "Bob's Burgers", json_response[1]['name']
-    assert json_response[1]['locations'][0]['phone_number']
-    # assert json_response[0]['quantity']
-    assert json_response[0]['items'][0]['price']
+    assert_response :success
+  end
+
+  test "trucks can be filtered by name" do
+    get trucks_url, params: {name: "Bob's Burgers"}, as: :json
+    json_response = JSON.parse(response.body)
+    assert_equal 1, json_response.length
+    assert_equal "Bob's Burgers", json_response[0]['name']
+    assert_response :success
+  end
+
+  test "trucks can be filtered by category" do
+    get trucks_url, params: {category: "Vegan"}, as: :json
+    json_response = JSON.parse(response.body)
+    assert_equal 1, json_response.length
+    assert_equal "Vegan", json_response[0]['categories'][0]['name']
+    assert_response :success
+  end
+
+  test "trucks can be filtered by location" do
+    get trucks_url, params: {location: "1234 Money Street"}, as: :json
+    json_response = JSON.parse(response.body)
+    assert_equal 1, json_response.length
+    assert_equal "1234 Money Street", json_response[0]['locations'][0]['name']
     assert_response :success
   end
 
