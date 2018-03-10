@@ -43,7 +43,7 @@ class TrucksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create truck" do
     assert_difference('Truck.count') do
-      post trucks_url, params: { truck: { name: @truck.name } }
+      post trucks_url, params: { truck: { name: @truck.name, start_time: @truck.start_time, end_time: @truck.end_time } }
     end
 
     assert_redirected_to truck_url(Truck.last)
@@ -60,7 +60,7 @@ class TrucksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update truck" do
-    patch truck_url(@truck), params: { truck: { name: @truck.name } }
+    patch truck_url(@truck), params: { truck: { name: @truck.name, start_time: @truck.start_time, end_time: @truck.end_time } }
     assert_redirected_to truck_url(@truck)
   end
 

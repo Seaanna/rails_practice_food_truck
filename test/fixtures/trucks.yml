@@ -2,6 +2,12 @@
 
 one:
   name: "Bob's Burgers"
+  phone_number: 1234567890
+  start_time: 2018-01-01 12:30:00
+  end_time:  2018-01-01 5:00:00
 
 two:
   name: MyString
+  phone_number: 1234567890
+  start_time: 2018-01-01 12:30:00
+  end_time:  2018-01-01 5:00:00

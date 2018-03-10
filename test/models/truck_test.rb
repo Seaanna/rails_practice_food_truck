@@ -12,10 +12,10 @@ class TruckTest < ActiveSupport::TestCase
   test "name is required" do
     @truck.name = nil
     @truck.save
-    assert_equal ["Name is required"], @truck.errors['name']
+    assert_equal ["can't be blank"], @truck.errors['name']
   end
 
-  test "a truck a phone_number" do
+  test "a truck has a phone_number" do
     assert @truck.phone_number
   end
 
@@ -28,6 +28,7 @@ class TruckTest < ActiveSupport::TestCase
   end
 
   test "there is a function to get the trucks that are open now" do
+    Truck.all.destroy_all
     location_1 = Location.create(name: 'test', start_time: Time.now-1.hour, end_time: Time.now+1.hour)
     location_2 = Location.create(name: 'test2', start_time: Time.now+1.hour, end_time: Time.now+2.hours)
 
@@ -45,13 +46,27 @@ class TruckTest < ActiveSupport::TestCase
     payment_1 = Payment.create(name: 'Card')
     payment_2 = Payment.create(name: 'Cash')
 
-    truck_1 = Truck.create(name: 'truck_1')
+    truck_1 = Truck.create(name: 'truck_1', start_time: '2018-01-01 12:30:00' , end_time: '2018-01-01 5:30:00')
     truck_1.payments << payment_1
 
-    truck_2 = Truck.create(name: 'truck_2')
+    truck_2 = Truck.create(name: 'truck_2', start_time: '2018-01-01 12:30:00' , end_time: '2018-01-01 5:30:00')
     truck_2.payments << payment_2
 
     @trucks =  Truck.get_trucks_accept_card
+    assert_equal 1, @trucks.count
+  end
+
+  test "there is a function to get the trucks that accept cash and card" do
+    payment_1 = Payment.create(name: 'Cash and Card')
+    payment_2 = Payment.create(name: 'Cash')
+
+    truck_1 = Truck.create(name: 'truck_1', start_time: '2018-01-01 12:30:00' , end_time: '2018-01-01 5:30:00')
+    truck_1.payments << payment_1
+
+    truck_2 = Truck.create(name: 'truck_2', start_time: '2018-01-01 12:30:00' , end_time: '2018-01-01 5:30:00')
+    truck_2.payments << payment_2
+
+    @trucks =  Truck.get_trucks_accept_cash_and_card
     assert_equal 1, @trucks.count
   end
 end

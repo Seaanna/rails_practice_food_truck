@@ -1,24 +1,7 @@
-# README
+# RAILS AND JSON
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I created a simple rails application where I could create tables, add relationship, and create good tests to help further my understanding of JSON object and making failing tests pass!
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+So simple and made for practice:
+* Ruby version 2.3.4
+* Rails version 5

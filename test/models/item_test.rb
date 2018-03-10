@@ -32,6 +32,6 @@ class ItemTest < ActiveSupport::TestCase
   test "name is required" do
     @item.name = nil
     @item.save
-    assert_equal ["Name is required"], @item.errors['name']
+    assert_equal ["can't be blank"], @item.errors['name']
   end
 end

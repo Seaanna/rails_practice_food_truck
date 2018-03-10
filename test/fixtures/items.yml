@@ -4,8 +4,12 @@ one:
   name: MyString
   price: 9.99
   truck: one
+  description: yummy
+  calories: 150
 
 two:
   name: MyString
   price: 9.99
   truck: two
+  description: yummy
+  calories: 150

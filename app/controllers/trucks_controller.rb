@@ -6,6 +6,20 @@ class TrucksController < ApplicationController
   def index
     @trucks = Truck.all
 
+    if params[:name]
+      @trucks = @trucks.where(name: params[:name])
+    end
+
+    if params[:category]
+      category = Category.find_by_name(params[:category])
+      @trucks = Truck.includes(:categories).where(categories: {name: params[:category]})
+    end
+
+    if params[:location]
+      location = Location.find_by_name(params[:location])
+      @trucks = Truck.includes(:locations).where(locations: {name: params[:location]})
+    end
+
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @trucks.as_json({})  }
@@ -74,6 +88,6 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:name)
+      params.require(:truck).permit(:name, :start_time, :end_time )
     end
 end

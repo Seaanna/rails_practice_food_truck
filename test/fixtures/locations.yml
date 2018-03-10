@@ -5,8 +5,12 @@ one:
   long: 1
   lat: 1
   phone_number: 1234567890
+  start_time: 2018-01-01 16:00:00
+  end_time:  2018-01-01 21:00:00
 
 two:
   name: 1234 Money Street
   long: 1
   lat: 1
+  start_time: 2018-01-01 16:00:00
+  end_time:  2018-01-01 21:00:00
